@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+/**
+ * Used to retrieve data with validations verified
+ *
+ * @author <a href="davidsandoval9217@gmail.com"> David Sandoval</a>
+ * @since 1.0
+ * @version 1.0
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

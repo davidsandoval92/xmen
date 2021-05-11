@@ -9,6 +9,13 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Sql repository to manage DNA attempts
+ *
+ * @author <a href="davidsandoval9217@gmail.com"> David Sandoval</a>
+ * @since 1.0
+ * @version 1.0
+ */
 @Slf4j
 @Component
 public class SqlAttemptRepository implements AttemptRepository {
