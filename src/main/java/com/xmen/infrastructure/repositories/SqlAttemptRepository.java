@@ -1,6 +1,6 @@
 package com.xmen.infrastructure.repositories;
 
-import com.xmen.domain.aggregates.VerificationAggregate;
+import com.xmen.domain.aggregates.VerificationAttemptAggregate;
 import com.xmen.domain.repositories.AttemptRepository;
 import com.xmen.infrastructure.repositories.models.VerificationAttempt;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class SqlAttemptRepository implements AttemptRepository {
     }
 
     @Override
-    public void registerAttempt(VerificationAggregate attempt) {
+    public void registerAttempt(VerificationAttemptAggregate attempt) {
         repository.save(new VerificationAttempt(
                 attempt.getExamResult(),
                 attempt.getExamDate()

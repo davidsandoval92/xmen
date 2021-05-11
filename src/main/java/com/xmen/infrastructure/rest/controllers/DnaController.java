@@ -36,7 +36,7 @@ public class DnaController {
      * @return ResponseEntity<Void>
      */
     @PostMapping("/mutant/")
-    public ResponseEntity<Void> verifyDna(@Valid @RequestBody final SpecimenRequest request){
+    public ResponseEntity<Void> verifyDna(@Valid @RequestBody final SpecimenRequest request) throws Exception {
 
         return useCase.isMutant(request.getDna()) ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -48,7 +48,7 @@ public class DnaController {
      * @return ResponseEntity<ValidationAverageResponse>
      */
     @GetMapping("/stats")
-    public ResponseEntity<ValidationAverageResponse> validationAverages(){
+    public ResponseEntity<ValidationAverageResponse> validationAverages() throws Exception {
 
         Verification verification = useCase.validateAttempts();
         return new ResponseEntity<>(new ValidationAverageResponse(

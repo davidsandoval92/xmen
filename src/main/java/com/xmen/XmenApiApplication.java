@@ -1,5 +1,9 @@
 package com.xmen;
 
+import com.xmen.application.command.CreateDnaVerificationAttemptCommandHandler;
+import com.xmen.application.cqrs.commandbus.CommandBus;
+import com.xmen.application.cqrs.querybus.QueryBus;
+import com.xmen.application.query.GetDnaVerificationAttemptQueryHandler;
 import com.xmen.application.usecases.MutantUseCase;
 import com.xmen.domain.repositories.AttemptRepository;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +30,18 @@ public class XmenApiApplication {
     }
 
     @Bean
-    public MutantUseCase mutantUseCase(final AttemptRepository repository){
-        return new MutantUseCase(repository);
+    public MutantUseCase mutantUseCase(final CommandBus commandBus, final QueryBus queryBus) {
+        return new MutantUseCase(commandBus, queryBus);
     }
+
+    @Bean
+    GetDnaVerificationAttemptQueryHandler getAttemptQueryHandler(final AttemptRepository attemptRepository) {
+        return new GetDnaVerificationAttemptQueryHandler(attemptRepository);
+    }
+
+    @Bean
+    CreateDnaVerificationAttemptCommandHandler getAttemptCommandHandler(final AttemptRepository attemptRepository) {
+        return new CreateDnaVerificationAttemptCommandHandler(attemptRepository);
+    }
+
 }

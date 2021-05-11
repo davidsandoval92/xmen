@@ -15,14 +15,14 @@ import java.util.List;
  * @since 1.0
  * @version 1.0
  */
-public class VerificationAggregate {
+public class VerificationAttemptAggregate {
     final static String MUTANT = "MUTANT";
     final static String NO_MUTANT = "NO-MUTANT";
 
     private final String examResult;
     private final LocalDate examDate;
 
-    public VerificationAggregate(boolean examResult){
+    public VerificationAttemptAggregate(boolean examResult){
         this.examResult = examResult ? MUTANT : NO_MUTANT;
         this.examDate = LocalDate.now();
     }

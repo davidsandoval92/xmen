@@ -1,6 +1,6 @@
 package com.xmen.domain.repositories;
 
-import com.xmen.domain.aggregates.VerificationAggregate;
+import com.xmen.domain.aggregates.VerificationAttemptAggregate;
 import com.xmen.domain.entities.VerificationAttempt;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface AttemptRepository {
      *
      * @param attempt
      */
-    void registerAttempt(VerificationAggregate attempt);
+    void registerAttempt(VerificationAttemptAggregate attempt);
 
     /**
      *

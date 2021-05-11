@@ -9,7 +9,6 @@ import java.time.LocalDate;
  * @since 1.0
  * @version 1.0
  */
-
 public class VerificationAttempt {
 
     private final long id;

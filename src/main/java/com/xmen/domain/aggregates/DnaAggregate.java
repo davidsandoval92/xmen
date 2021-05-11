@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  * @since 1.0
  * @version 1.0
  */
-
 public class DnaAggregate {
 
     static final Integer QUANTITY_DNA_FOR_MUTANT = 4;
@@ -28,9 +27,7 @@ public class DnaAggregate {
         for (int i = 0; i < dna.length; i++) {
             fullDna[i] = dna[i].toCharArray();
         }
-
-        //System.out.println(Arrays.deepToString(fullDna).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-
+        
         CompletableFuture<Boolean> rows = CompletableFuture.supplyAsync(() -> findMutantRows(fullDna));
         CompletableFuture<Boolean> columns = CompletableFuture.supplyAsync(() -> findMutantColumns(fullDna));
         CompletableFuture<Boolean> obliquesRight = CompletableFuture.supplyAsync(() -> validateObliquesRight(fullDna));
