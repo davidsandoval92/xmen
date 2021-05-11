@@ -1,7 +1,7 @@
 package com.xmen.domain.repositories;
 
-import com.xmen.domain.aggregates.VerificationAttemptAggregate;
-import com.xmen.domain.entities.VerificationAttempt;
+import com.xmen.domain.aggregates.DnaVerificationAttemptAggregate;
+import com.xmen.domain.entities.DnaVerificationAttempt;
 
 import java.util.List;
 
@@ -12,18 +12,18 @@ import java.util.List;
  * @since 1.0
  * @version 1.0
  */
-public interface AttemptRepository {
+public interface DnaAttemptRepository {
 
     /**
      * Register an validate DNA attempt
      *
      * @param attempt
      */
-    void registerAttempt(VerificationAttemptAggregate attempt);
+    void registerAttempt(DnaVerificationAttemptAggregate attempt);
 
     /**
      *
      * @return list of attempts validated
      */
-    List<VerificationAttempt> attempts();
+    List<DnaVerificationAttempt> getAttempts();
 }

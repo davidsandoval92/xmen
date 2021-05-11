@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Data base entity verification attempts
+ */
 @Getter
 @Setter
 @Builder

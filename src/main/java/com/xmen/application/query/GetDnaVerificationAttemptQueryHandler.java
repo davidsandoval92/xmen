@@ -1,8 +1,8 @@
 package com.xmen.application.query;
 
 import com.xmen.application.cqrs.querybus.QueryHandler;
-import com.xmen.domain.entities.VerificationAttempt;
-import com.xmen.domain.repositories.AttemptRepository;
+import com.xmen.domain.entities.DnaVerificationAttempt;
+import com.xmen.domain.repositories.DnaAttemptRepository;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -14,16 +14,16 @@ import java.util.List;
  * @version 1.0
  */
 @Component
-public class GetDnaVerificationAttemptQueryHandler implements QueryHandler<List<VerificationAttempt>, GetDnaVerificationAttemptQuery> {
+public class GetDnaVerificationAttemptQueryHandler implements QueryHandler<List<DnaVerificationAttempt>, GetDnaVerificationAttemptQuery> {
 
-    private AttemptRepository attemptRepository;
+    private DnaAttemptRepository dnaAttemptRepository;
 
-    public GetDnaVerificationAttemptQueryHandler(AttemptRepository attemptRepository) {
-        this.attemptRepository = attemptRepository;
+    public GetDnaVerificationAttemptQueryHandler(DnaAttemptRepository dnaAttemptRepository) {
+        this.dnaAttemptRepository = dnaAttemptRepository;
     }
 
     @Override
-    public List<VerificationAttempt> handle(GetDnaVerificationAttemptQuery query) throws Exception {
-        return attemptRepository.attempts();
+    public List<DnaVerificationAttempt> handle(GetDnaVerificationAttemptQuery query) throws Exception {
+        return dnaAttemptRepository.getAttempts();
     }
 }

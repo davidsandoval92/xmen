@@ -1,7 +1,8 @@
 package com.xmen.infrastructure.repositories;
 
-import com.xmen.domain.aggregates.VerificationAttemptAggregate;
-import com.xmen.domain.repositories.AttemptRepository;
+import com.xmen.domain.aggregates.DnaVerificationAttemptAggregate;
+import com.xmen.domain.entities.DnaVerificationAttempt;
+import com.xmen.domain.repositories.DnaAttemptRepository;
 import com.xmen.infrastructure.repositories.models.VerificationAttempt;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -18,28 +19,36 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class SqlAttemptRepository implements AttemptRepository {
+public class SqlDnaAttemptRepository implements DnaAttemptRepository {
 
     private final JpaAttemptRepositorySql repository;
 
-    public SqlAttemptRepository(JpaAttemptRepositorySql repository){
+    public SqlDnaAttemptRepository(JpaAttemptRepositorySql repository){
         this.repository = repository;
     }
 
+    /**
+     * Save an Dna verification attempt
+     * @param attempt
+     */
     @Override
-    public void registerAttempt(VerificationAttemptAggregate attempt) {
+    public void registerAttempt(DnaVerificationAttemptAggregate attempt) {
         repository.save(new VerificationAttempt(
                 attempt.getExamResult(),
                 attempt.getExamDate()
         ));
     }
 
+    /**
+     * Get dna verification attempts
+     * @return List of DnaVerificationAttempt
+     */
     @Override
-    public List<com.xmen.domain.entities.VerificationAttempt> attempts() {
+    public List<DnaVerificationAttempt> getAttempts() {
         log.info("Getting validation attempts.");
         return repository.findAll()
                 .stream()
-                .map(attempt -> new com.xmen.domain.entities.VerificationAttempt(
+                .map(attempt -> new DnaVerificationAttempt(
                         attempt.getId(),
                         attempt.getExamResult(),
                         attempt.getExamDate()

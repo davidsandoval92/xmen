@@ -1,7 +1,7 @@
 package com.xmen.application.command;
 
 import com.xmen.application.cqrs.commandbus.CommandHandler;
-import com.xmen.domain.repositories.AttemptRepository;
+import com.xmen.domain.repositories.DnaAttemptRepository;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateDnaVerificationAttemptCommandHandler implements CommandHandler<CreateDnaVerificationAttemptCommand> {
 
-    private AttemptRepository attemptRepository;
+    private DnaAttemptRepository dnaAttemptRepository;
 
-    public CreateDnaVerificationAttemptCommandHandler(AttemptRepository attemptRepository) {
-        this.attemptRepository = attemptRepository;
+    public CreateDnaVerificationAttemptCommandHandler(DnaAttemptRepository dnaAttemptRepository) {
+        this.dnaAttemptRepository = dnaAttemptRepository;
     }
 
     @Override
     public void handle(CreateDnaVerificationAttemptCommand command) throws Exception {
-        attemptRepository.registerAttempt(command.getVerificationAggregate());
+        dnaAttemptRepository.registerAttempt(command.getVerificationAggregate());
     }
 }

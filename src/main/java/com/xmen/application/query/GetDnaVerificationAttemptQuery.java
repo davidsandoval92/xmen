@@ -1,7 +1,7 @@
 package com.xmen.application.query;
 
 import com.xmen.application.cqrs.querybus.Query;
-import com.xmen.domain.entities.VerificationAttempt;
+import com.xmen.domain.entities.DnaVerificationAttempt;
 import java.util.List;
 
 /**
@@ -11,6 +11,6 @@ import java.util.List;
  * @since 1.0
  * @version 1.0
  */
-public class GetDnaVerificationAttemptQuery extends Query<List<VerificationAttempt>> {
+public class GetDnaVerificationAttemptQuery extends Query<List<DnaVerificationAttempt>> {
 
 }

@@ -1,7 +1,7 @@
 package com.xmen.infrastructure.rest.controllers;
 
 import com.xmen.application.usecases.MutantUseCase;
-import com.xmen.domain.vo.Verification;
+import com.xmen.domain.vo.DnaVerification;
 import com.xmen.infrastructure.rest.contracts.SpecimenRequest;
 import com.xmen.infrastructure.rest.contracts.ValidationAverageResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -50,12 +50,12 @@ public class DnaController {
     @GetMapping("/stats")
     public ResponseEntity<ValidationAverageResponse> validationAverages() throws Exception {
 
-        Verification verification = useCase.validateAttempts();
+        DnaVerification dnaVerification = useCase.validateAttempts();
         return new ResponseEntity<>(new ValidationAverageResponse(
                 new ValidationAverageResponse.DnaAverage(
-                        verification.getCountMutantDna(),
-                        verification.getCountHumanDna(),
-                        verification.getRatio())),HttpStatus.OK);
+                        dnaVerification.getCountMutantDna(),
+                        dnaVerification.getCountHumanDna(),
+                        dnaVerification.getRatio())),HttpStatus.OK);
     }
 
     /**

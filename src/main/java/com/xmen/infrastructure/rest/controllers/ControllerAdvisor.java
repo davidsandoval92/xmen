@@ -23,7 +23,7 @@ public class ControllerAdvisor {
      * @return Error with 403 HTTP status
      */
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Void> handleValidationException(){
+    public ResponseEntity<Void> handleValidationException(final RuntimeException ex){
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 }

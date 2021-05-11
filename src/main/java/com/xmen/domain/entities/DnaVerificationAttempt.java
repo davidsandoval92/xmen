@@ -9,13 +9,13 @@ import java.time.LocalDate;
  * @since 1.0
  * @version 1.0
  */
-public class VerificationAttempt {
+public class DnaVerificationAttempt {
 
     private final long id;
     private final String examResult;
     private final LocalDate examDate;
 
-    public VerificationAttempt(long id, String examResult, LocalDate examDate){
+    public DnaVerificationAttempt(long id, String examResult, LocalDate examDate){
         this.id = id;
         this.examResult = examResult;
         this.examDate = examDate;

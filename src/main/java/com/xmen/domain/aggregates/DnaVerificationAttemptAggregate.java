@@ -1,7 +1,7 @@
 package com.xmen.domain.aggregates;
 
-import com.xmen.domain.entities.VerificationAttempt;
-import com.xmen.domain.vo.Verification;
+import com.xmen.domain.entities.DnaVerificationAttempt;
+import com.xmen.domain.vo.DnaVerification;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -15,14 +15,14 @@ import java.util.List;
  * @since 1.0
  * @version 1.0
  */
-public class VerificationAttemptAggregate {
+public class DnaVerificationAttemptAggregate {
     final static String MUTANT = "MUTANT";
     final static String NO_MUTANT = "NO-MUTANT";
 
     private final String examResult;
     private final LocalDate examDate;
 
-    public VerificationAttemptAggregate(boolean examResult){
+    public DnaVerificationAttemptAggregate(boolean examResult){
         this.examResult = examResult ? MUTANT : NO_MUTANT;
         this.examDate = LocalDate.now();
     }
@@ -35,14 +35,21 @@ public class VerificationAttemptAggregate {
         return examDate;
     }
 
-    public static Verification  validateAttempts(List<VerificationAttempt> verificationAttempts){
+    /**
+     * validate dna attempts and calculate the rate
+     *
+     * @param dnaVerificationAttempts
+     * @return DnaVerification
+     */
+    public static DnaVerification validateAttempts(List<DnaVerificationAttempt> dnaVerificationAttempts){
 
-
-        long numberMutants = verificationAttempts.stream()
+        if(dnaVerificationAttempts.isEmpty())
+            throw new RuntimeException();
+        long numberMutants = dnaVerificationAttempts.stream()
                 .filter(sample -> sample.getExamResult().equals(MUTANT))
                 .count();
 
-        long numberNoMutants = verificationAttempts.stream()
+        long numberNoMutants = dnaVerificationAttempts.stream()
                 .filter(sample -> sample.getExamResult().equals(NO_MUTANT))
                 .count();
 
@@ -51,6 +58,6 @@ public class VerificationAttemptAggregate {
         numNoMutants = numNoMutants.equals(BigDecimal.ZERO) ? BigDecimal.ONE : numNoMutants;
         BigDecimal rate = numMutants.divide(numNoMutants,4, RoundingMode.HALF_EVEN);
 
-        return new Verification(numberMutants, numberNoMutants, rate);
+        return new DnaVerification(numberMutants, numberNoMutants, rate);
     }
 }

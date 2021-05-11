@@ -1,7 +1,7 @@
 package com.xmen.application.command;
 
 import com.xmen.application.cqrs.commandbus.Command;
-import com.xmen.domain.aggregates.VerificationAttemptAggregate;
+import com.xmen.domain.aggregates.DnaVerificationAttemptAggregate;
 
 /**
  * Create dna verified attempt command
@@ -12,18 +12,18 @@ import com.xmen.domain.aggregates.VerificationAttemptAggregate;
  */
 public class CreateDnaVerificationAttemptCommand extends Command {
 
-    private VerificationAttemptAggregate verificationAttemptAggregate;
+    private DnaVerificationAttemptAggregate dnaVerificationAttemptAggregate;
 
-    public CreateDnaVerificationAttemptCommand(VerificationAttemptAggregate verificationAttemptAggregate) {
-        this.verificationAttemptAggregate = verificationAttemptAggregate;
+    public CreateDnaVerificationAttemptCommand(DnaVerificationAttemptAggregate dnaVerificationAttemptAggregate) {
+        this.dnaVerificationAttemptAggregate = dnaVerificationAttemptAggregate;
     }
 
-    public static CreateDnaVerificationAttemptCommand create(VerificationAttemptAggregate verificationAttemptAggregate){
-        return  new CreateDnaVerificationAttemptCommand(verificationAttemptAggregate);
+    public static CreateDnaVerificationAttemptCommand create(DnaVerificationAttemptAggregate dnaVerificationAttemptAggregate){
+        return  new CreateDnaVerificationAttemptCommand(dnaVerificationAttemptAggregate);
     }
 
-    public VerificationAttemptAggregate getVerificationAggregate() {
-        return verificationAttemptAggregate;
+    public DnaVerificationAttemptAggregate getVerificationAggregate() {
+        return dnaVerificationAttemptAggregate;
     }
 
 }
