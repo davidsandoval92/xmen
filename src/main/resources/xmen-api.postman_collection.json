@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "xmen",
+		"name": "xmen-api",
 		"_postman_id": "8795d322-1d36-c03a-795d-0a0543710440",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
