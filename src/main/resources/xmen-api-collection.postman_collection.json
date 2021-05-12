@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "xmen-api",
+		"name": "xmen-api-collection",
 		"_postman_id": "8795d322-1d36-c03a-795d-0a0543710440",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -10,7 +10,7 @@
 		{
 			"name": "is-mutant",
 			"request": {
-				"url": "http://localhost:8080/mutant/",
+				"url": "http://localhost:8080/xmen-api/mutant/",
 				"method": "POST",
 				"header": [
 					{
@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"dna\":[\"TAT\",\"TTT\",\"TCT\",\"TAA\",\"AGT\",\"AAT\"]\r\n}"
+					"raw": "{\r\n\t\"dna\":[\"GGGCGA\",\"CAGTGC\",\"ATATGA\",\"AAGAAG\",\"CCAAGG\",\"TCAGTG\"]\r\n}\r\n"
 				},
 				"description": ""
 			},
@@ -30,7 +30,7 @@
 		{
 			"name": "stats",
 			"request": {
-				"url": "http://localhost:8080/xmen-api/stats",
+				"url": "http://18.116.231.193:8080/xmen-api/stats",
 				"method": "GET",
 				"header": [
 					{
@@ -41,7 +41,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"dna\":[\"TAT\",\"TTT\",\"TCT\",\"TAA\",\"AGT\",\"AAT\"]\r\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
