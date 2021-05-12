@@ -79,6 +79,11 @@ List of things you need to use the software and how to install them.
    ```
 6. Run the project
 
+### Other information
+1. Postman collection
+   ```sh
+   https://github.com/davidsandoval92/xmen/blob/master/src/main/resources/xmen-api-collection.postman_collection.json
+   ```
 
 <!-- CONTACT -->
 ## Contact
