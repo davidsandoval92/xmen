@@ -71,12 +71,12 @@ List of things you need to use the software and how to install them.
 2. Import the project to the IDE of your choice
 3. Execute next script in Postgresql data base
    ```sh
-   https://github.com/davidsandoval92/xmen/blob/master/src/main/resources/create_table_attempts.sql
+   https://github.com/davidsandoval92/xmen/blob/master/src/main/resources/sequence_bd.sql
    ```
 4. Execute next script in Postgresql data base
    ```sh
-   https://github.com/davidsandoval92/xmen/blob/master/src/main/resources/sequence_bd.sql
-   ``` 
+   https://github.com/davidsandoval92/xmen/blob/master/src/main/resources/create_table_attempts.sql
+   ```
 6. Run the project
 
 
