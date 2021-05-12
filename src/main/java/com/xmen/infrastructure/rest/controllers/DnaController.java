@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 @Slf4j
 @RestController
+@RequestMapping("/xmen-api")
 public class DnaController {
 
     private final MutantUseCase useCase;

@@ -51,7 +51,7 @@ public class DnaControllerTest {
 
         when(useCase.isMutant(Mockito.any())).thenReturn(true);
 
-        mvc.perform(post("/mutant/")
+        mvc.perform(post("/xmen-api/mutant/")
                 .content(new ObjectMapper().writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -74,7 +74,7 @@ public class DnaControllerTest {
 
         when(useCase.isMutant(Mockito.any())).thenReturn(false);
 
-        mvc.perform(post("/mutant/")
+        mvc.perform(post("/xmen-api/mutant/")
                 .content(new ObjectMapper().writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isForbidden());
@@ -94,7 +94,7 @@ public class DnaControllerTest {
 
         when(useCase.validateAttempts()).thenReturn(dnaVerification);
 
-        mvc.perform(get("/stats")
+        mvc.perform(get("/xmen-api/stats")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.dna.count_mutant_dna", is(40)))
                 .andExpect(status().isOk());

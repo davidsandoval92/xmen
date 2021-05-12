@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "xmen",
+		"_postman_id": "8795d322-1d36-c03a-795d-0a0543710440",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "is-mutant",
+			"request": {
+				"url": "http://localhost:8080/mutant/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"dna\":[\"TAT\",\"TTT\",\"TCT\",\"TAA\",\"AGT\",\"AAT\"]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "stats",
+			"request": {
+				"url": "http://localhost:8080/xmen-api/stats",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"dna\":[\"TAT\",\"TTT\",\"TCT\",\"TAA\",\"AGT\",\"AAT\"]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
