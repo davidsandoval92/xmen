@@ -25,7 +25,7 @@ public class ControllerAdvisorTest {
     public void verifyDna_withSuccessFlow(){
 
         final ResponseEntity<?> response = controllerAdvisor
-                .handleValidationException(new RuntimeException());
+                .handleRuntimeException(new RuntimeException());
 
         assertThat(response.getStatusCode(), is(equalTo(HttpStatus.FORBIDDEN)));
 

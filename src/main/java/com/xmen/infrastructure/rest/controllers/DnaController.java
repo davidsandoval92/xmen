@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 
 /**
  * This controller allows manage DNA operations
@@ -39,6 +40,7 @@ public class DnaController {
     @PostMapping("/mutant/")
     public ResponseEntity<Void> verifyDna(@Valid @RequestBody final SpecimenRequest request) throws Exception {
 
+        log.info("Validate if mutant or not for DNA: [{}]", Arrays.toString(request.getDna()));
         return useCase.isMutant(request.getDna()) ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
@@ -51,6 +53,7 @@ public class DnaController {
     @GetMapping("/stats")
     public ResponseEntity<ValidationAverageResponse> validationAverages() throws Exception {
 
+        log.info("validate DNA verification statistics");
         DnaVerification dnaVerification = useCase.validateAttempts();
         return new ResponseEntity<>(new ValidationAverageResponse(
                 new ValidationAverageResponse.DnaAverage(

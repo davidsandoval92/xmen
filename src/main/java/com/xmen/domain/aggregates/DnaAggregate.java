@@ -1,5 +1,7 @@
 package com.xmen.domain.aggregates;
 
+import com.xmen.domain.exceptions.InvalidDnaException;
+
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -64,12 +66,12 @@ public class DnaAggregate {
      */
     private static void isValidAdn(List<String> dna) {
 
-        if (dna.isEmpty()) {
-            throw new RuntimeException();
+        if (Objects.isNull(dna) || dna.isEmpty()) {
+            throw new InvalidDnaException("DNA cannot be empty or null");
         }
         for (String s : dna) {
             if (!s.matches(MOLECULE_ADN_VALID)) {
-                throw new RuntimeException();
+                throw new InvalidDnaException("DNA contains an invalid molecule");
             }
         }
     }

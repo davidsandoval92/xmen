@@ -33,6 +33,7 @@ public class SqlDnaAttemptRepository implements DnaAttemptRepository {
      */
     @Override
     public void registerAttempt(DnaVerificationAttemptAggregate attempt) {
+        log.info("Save validation attempts, with result: [{}]", attempt.getExamResult());
         repository.save(new VerificationAttempt(
                 attempt.getExamResult(),
                 attempt.getExamDate()
